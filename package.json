@@ -1,0 +1,16 @@
+{
+  "name": "lab-event-router",
+  "version": "0.1.0",
+  "description": "It provides simplified syntax for events handlers registration and management",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "scripts": {
+    "test": "npm install && mocha"
+  },
+  "author": "Piotr Janik <janikpiotrek@gmail.com>",
+  "licenses": ["MIT", "Simplified BSD", "Apache 2.0"]
+}
