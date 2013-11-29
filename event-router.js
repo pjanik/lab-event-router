@@ -8,12 +8,9 @@
   }
 
   /**
-   * Registers a handler. 
-   * Event emitter is chosen using event description string, e.g.:
-   * .on("[testEmitter]testEvent", handler) will register
-   * handler using 'testEmitter' as an event emitter.
-   *
-   * To connect name with real object, use .setEmitter() function.
+   * Registers a handler. Event emitter is chosen using event description string, e.g.:
+   * .on("[testEmitter]testEvent", handler) will register handler using 'testEmitter' as the event
+   * emitter. To connect name with real object, use .setEmitter() function.
    * @param  {string}   eventDesc
    * @param  {function} handler   
    */
@@ -35,6 +32,23 @@
     });
   };
 
+  /**
+   * Sets or updates event emitter bound to a given name, e.g.:
+   * .set('testEmitter', emitter)
+   * When you set a new object connected with a given name, all handlers attached to events
+   * and emitter with this name will be registered again on the new object.
+   * Configuration object can be used to translated incompatible API, e.g. to support emitter
+   * that provides .addObserver method:
+   * {
+   *   on: function(emitter, eventDesc, handler) {
+   *     emitter.addObserver(eventDesc, handler);
+   *   }
+   * }
+   * 
+   * @param {string} name    
+   * @param {object} emitter 
+   * @param {object} config  
+   */
   EventRouter.prototype.setEmitter = function(name, emitter, config) {
     this._registerEmitter(name);
 
@@ -46,6 +60,7 @@
     this._setAllHandlers(name);
   };
 
+  // Private methods:
   EventRouter.prototype._registerEmitter = function(emitterName) {
     if (this._emitter[emitterName] === undefined) {
       this._emitter[emitterName] = {

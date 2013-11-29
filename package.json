@@ -2,7 +2,7 @@
   "name": "lab-event-router",
   "version": "0.1.0",
   "description": "It provides simplified syntax for events handlers registration and management",
-  "main": "main.js",
+  "main": "event-router.js",
   "dependencies": {},
   "devDependencies": {
     "mocha": "*",
